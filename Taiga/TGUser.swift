@@ -24,11 +24,4 @@ struct TGUser {
     
     
 }
-//let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
-//})
 
-//viewController.jsonManager.showAlert("Alert", message:"username and password wrong", actions:[actionOK])
-
-
-//let vc = viewController.storyboard?.instantiateViewController(withIdentifier: "RegisterView") as! RegisterViewViewController
-//viewController.navigationController?.pushViewController(vc, animated: true)

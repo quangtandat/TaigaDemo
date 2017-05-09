@@ -16,7 +16,6 @@ var jsonManager = ParseJson()
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contraintScrollView: NSLayoutConstraint!
     @IBOutlet weak var txtUsername: UITextField!
-    
     @IBOutlet weak var txtPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -153,25 +152,3 @@ extension ViewController:UITextFieldDelegate{
 
 
 
-/*  jsonManager.signIn(parameter: ["password":password!,"type":"normal","username":username!],link: linkSignIn){(statusCode,dict)-> Void in
- if statusCode != 200{
- let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
- })
- self.staticComponent.showAlert("Alert", message:dict["_error_message"] as! String?, actions:[actionOK])
- }
- else if statusCode == 200{
- self.userInfo.append(TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int))
- print(self.userInfo)
- DispatchQueue.main.async {
- let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListProjectViewController") as! ListProjectViewController
- self.navigationController?.pushViewController(vc, animated: true)
- }
- }
- else{
- let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
- })
- self.staticComponent.showAlert("Alert", message:"check Internet", actions:[actionOK])
- }*/
-
-//}
-//}

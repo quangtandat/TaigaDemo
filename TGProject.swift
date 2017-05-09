@@ -11,15 +11,11 @@ import UIKit
 struct TGProject {
     var name = ""
     var username = ""
-   // var email = ""
-   // var id = 0
     
     
     init(name:String,username:String) {
         self.name = name
         self.username = username
-     //  self.email = email
-     //   self.id = id
     }
     
     
