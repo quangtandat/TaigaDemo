@@ -50,17 +50,19 @@ var jsonManager = ParseJson()
             if height + txtUsername.frame.maxY + 60 > screenSize{
             let addConstant = contraintScrollView.constant + height
             contraintScrollView.constant  = addConstant
-            scrollView.setContentOffset(CGPoint(x: 0, y: txtUsername.frame.minY - 80), animated: true)
+            scrollView.setContentOffset(CGPoint(x: 0, y: (height + txtUsername.frame.maxY + 60) - screenSize), animated: true)
         }
-        }
+    }
         else{
+                print(height + txtPassword.frame.maxY + 60)
+          print(UIScreen.main.bounds.height)
             if height + txtPassword.frame.maxY + 60 > screenSize{
             let addConstant = contraintScrollView.constant + height
             contraintScrollView.constant  = addConstant
-            scrollView.setContentOffset(CGPoint(x: 0, y: txtPassword.frame.minY - 80), animated: true)
+            scrollView.setContentOffset(CGPoint(x: 0, y:(height + txtUsername.frame.maxY + 60) - screenSize), animated: true)
         }
         
-        }
+    }
 
     }
     func isTap(){
