@@ -11,7 +11,6 @@
 		EAB686851EB992CF004A339B /* TGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB686841EB992CF004A339B /* TGUser.swift */; };
 		EAB6868C1EB9CB82004A339B /* StaticClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6868B1EB9CB82004A339B /* StaticClass.swift */; };
 		EAB6868E1EBAEA66004A339B /* ListProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6868D1EBAEA66004A339B /* ListProjectViewController.swift */; };
-		EAB686901EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png in Resources */ = {isa = PBXBuildFile; fileRef = EAB6868F1EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png */; };
 		EAB686921EBAECD7004A339B /* ListProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB686911EBAECD7004A339B /* ListProjectCell.swift */; };
 		EAD3490B1EB20CD600CC2725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3490A1EB20CD600CC2725 /* AppDelegate.swift */; };
 		EAD3490D1EB20CD600CC2725 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3490C1EB20CD600CC2725 /* ViewController.swift */; };
@@ -39,7 +38,6 @@
 		EAB686841EB992CF004A339B /* TGUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGUser.swift; sourceTree = "<group>"; };
 		EAB6868B1EB9CB82004A339B /* StaticClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticClass.swift; sourceTree = "<group>"; };
 		EAB6868D1EBAEA66004A339B /* ListProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProjectViewController.swift; sourceTree = "<group>"; };
-		EAB6868F1EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-03-09 at 08.42.25.png"; sourceTree = "<group>"; };
 		EAB686911EBAECD7004A339B /* ListProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProjectCell.swift; sourceTree = "<group>"; };
 		EAD349071EB20CD600CC2725 /* Taiga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taiga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAD3490A1EB20CD600CC2725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +112,6 @@
 		EAD348FE1EB20CD600CC2725 = {
 			isa = PBXGroup;
 			children = (
-				EAB6868F1EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png */,
 				EAD349091EB20CD600CC2725 /* Taiga */,
 				EAD3491E1EB20CD600CC2725 /* TaigaTests */,
 				EAD349081EB20CD600CC2725 /* Products */,
@@ -239,7 +236,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EAD349151EB20CD600CC2725 /* LaunchScreen.storyboard in Resources */,
-				EAB686901EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png in Resources */,
 				EAD349121EB20CD600CC2725 /* Assets.xcassets in Resources */,
 				EAD349101EB20CD600CC2725 /* Main.storyboard in Resources */,
 			);
