@@ -1,0 +1,491 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA3D2C7F1EBFFFF200367F70 /* TGProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3D2C7E1EBFFFF200367F70 /* TGProject.swift */; };
+		EAB686851EB992CF004A339B /* TGUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB686841EB992CF004A339B /* TGUser.swift */; };
+		EAB6868C1EB9CB82004A339B /* StaticClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6868B1EB9CB82004A339B /* StaticClass.swift */; };
+		EAB6868E1EBAEA66004A339B /* ListProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB6868D1EBAEA66004A339B /* ListProjectViewController.swift */; };
+		EAB686901EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png in Resources */ = {isa = PBXBuildFile; fileRef = EAB6868F1EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png */; };
+		EAB686921EBAECD7004A339B /* ListProjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAB686911EBAECD7004A339B /* ListProjectCell.swift */; };
+		EAD3490B1EB20CD600CC2725 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3490A1EB20CD600CC2725 /* AppDelegate.swift */; };
+		EAD3490D1EB20CD600CC2725 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3490C1EB20CD600CC2725 /* ViewController.swift */; };
+		EAD349101EB20CD600CC2725 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD3490E1EB20CD600CC2725 /* Main.storyboard */; };
+		EAD349121EB20CD600CC2725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAD349111EB20CD600CC2725 /* Assets.xcassets */; };
+		EAD349151EB20CD600CC2725 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAD349131EB20CD600CC2725 /* LaunchScreen.storyboard */; };
+		EAD349201EB20CD600CC2725 /* TaigaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3491F1EB20CD600CC2725 /* TaigaTests.swift */; };
+		EAD3492B1EB2F7ED00CC2725 /* ParseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3492A1EB2F7ED00CC2725 /* ParseJson.swift */; };
+		EAD3492D1EB303A200CC2725 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3492C1EB303A100CC2725 /* Constant.swift */; };
+		EAD3492F1EB35A4600CC2725 /* RegisterViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3492E1EB35A4500CC2725 /* RegisterViewViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EAD3491C1EB20CD600CC2725 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EAD348FF1EB20CD600CC2725 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EAD349061EB20CD600CC2725;
+			remoteInfo = Taiga;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EA3D2C7E1EBFFFF200367F70 /* TGProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TGProject.swift; path = ../TGProject.swift; sourceTree = "<group>"; };
+		EAB686841EB992CF004A339B /* TGUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TGUser.swift; sourceTree = "<group>"; };
+		EAB6868B1EB9CB82004A339B /* StaticClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaticClass.swift; sourceTree = "<group>"; };
+		EAB6868D1EBAEA66004A339B /* ListProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProjectViewController.swift; sourceTree = "<group>"; };
+		EAB6868F1EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Screen Shot 2017-03-09 at 08.42.25.png"; sourceTree = "<group>"; };
+		EAB686911EBAECD7004A339B /* ListProjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListProjectCell.swift; sourceTree = "<group>"; };
+		EAD349071EB20CD600CC2725 /* Taiga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taiga.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD3490A1EB20CD600CC2725 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAD3490C1EB20CD600CC2725 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EAD3490F1EB20CD600CC2725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAD349111EB20CD600CC2725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EAD349141EB20CD600CC2725 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAD349161EB20CD600CC2725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAD3491B1EB20CD600CC2725 /* TaigaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaigaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAD3491F1EB20CD600CC2725 /* TaigaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaigaTests.swift; sourceTree = "<group>"; };
+		EAD349211EB20CD700CC2725 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAD3492A1EB2F7ED00CC2725 /* ParseJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseJson.swift; sourceTree = "<group>"; };
+		EAD3492C1EB303A100CC2725 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		EAD3492E1EB35A4500CC2725 /* RegisterViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAD349041EB20CD600CC2725 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD349181EB20CD600CC2725 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAB686861EB9CAC3004A339B /* Service Manager */ = {
+			isa = PBXGroup;
+			children = (
+				EAD3492A1EB2F7ED00CC2725 /* ParseJson.swift */,
+			);
+			name = "Service Manager";
+			sourceTree = "<group>";
+		};
+		EAB686881EB9CAF1004A339B /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				EAD3492C1EB303A100CC2725 /* Constant.swift */,
+				EAB6868B1EB9CB82004A339B /* StaticClass.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		EAB686891EB9CB04004A339B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EA3D2C7E1EBFFFF200367F70 /* TGProject.swift */,
+				EAB686841EB992CF004A339B /* TGUser.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		EAB6868A1EB9CB10004A339B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EAD3490C1EB20CD600CC2725 /* ViewController.swift */,
+				EAD3492E1EB35A4500CC2725 /* RegisterViewViewController.swift */,
+				EAB6868D1EBAEA66004A339B /* ListProjectViewController.swift */,
+				EAB686911EBAECD7004A339B /* ListProjectCell.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		EAD348FE1EB20CD600CC2725 = {
+			isa = PBXGroup;
+			children = (
+				EAB6868F1EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png */,
+				EAD349091EB20CD600CC2725 /* Taiga */,
+				EAD3491E1EB20CD600CC2725 /* TaigaTests */,
+				EAD349081EB20CD600CC2725 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAD349081EB20CD600CC2725 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAD349071EB20CD600CC2725 /* Taiga.app */,
+				EAD3491B1EB20CD600CC2725 /* TaigaTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAD349091EB20CD600CC2725 /* Taiga */ = {
+			isa = PBXGroup;
+			children = (
+				EAB686861EB9CAC3004A339B /* Service Manager */,
+				EAB6868A1EB9CB10004A339B /* Controller */,
+				EAB686881EB9CAF1004A339B /* Utilities */,
+				EAB686891EB9CB04004A339B /* Model */,
+				EAD3490A1EB20CD600CC2725 /* AppDelegate.swift */,
+				EAD3490E1EB20CD600CC2725 /* Main.storyboard */,
+				EAD349111EB20CD600CC2725 /* Assets.xcassets */,
+				EAD349131EB20CD600CC2725 /* LaunchScreen.storyboard */,
+				EAD349161EB20CD600CC2725 /* Info.plist */,
+			);
+			path = Taiga;
+			sourceTree = "<group>";
+		};
+		EAD3491E1EB20CD600CC2725 /* TaigaTests */ = {
+			isa = PBXGroup;
+			children = (
+				EAD3491F1EB20CD600CC2725 /* TaigaTests.swift */,
+				EAD349211EB20CD700CC2725 /* Info.plist */,
+			);
+			path = TaigaTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAD349061EB20CD600CC2725 /* Taiga */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAD349241EB20CD700CC2725 /* Build configuration list for PBXNativeTarget "Taiga" */;
+			buildPhases = (
+				EAD349031EB20CD600CC2725 /* Sources */,
+				EAD349041EB20CD600CC2725 /* Frameworks */,
+				EAD349051EB20CD600CC2725 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Taiga;
+			productName = Taiga;
+			productReference = EAD349071EB20CD600CC2725 /* Taiga.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EAD3491A1EB20CD600CC2725 /* TaigaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAD349271EB20CD700CC2725 /* Build configuration list for PBXNativeTarget "TaigaTests" */;
+			buildPhases = (
+				EAD349171EB20CD600CC2725 /* Sources */,
+				EAD349181EB20CD600CC2725 /* Frameworks */,
+				EAD349191EB20CD600CC2725 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAD3491D1EB20CD600CC2725 /* PBXTargetDependency */,
+			);
+			name = TaigaTests;
+			productName = TaigaTests;
+			productReference = EAD3491B1EB20CD600CC2725 /* TaigaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAD348FF1EB20CD600CC2725 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = "Quang Dat";
+				TargetAttributes = {
+					EAD349061EB20CD600CC2725 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
+					EAD3491A1EB20CD600CC2725 = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EAD349061EB20CD600CC2725;
+					};
+				};
+			};
+			buildConfigurationList = EAD349021EB20CD600CC2725 /* Build configuration list for PBXProject "Taiga" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAD348FE1EB20CD600CC2725;
+			productRefGroup = EAD349081EB20CD600CC2725 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAD349061EB20CD600CC2725 /* Taiga */,
+				EAD3491A1EB20CD600CC2725 /* TaigaTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAD349051EB20CD600CC2725 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD349151EB20CD600CC2725 /* LaunchScreen.storyboard in Resources */,
+				EAB686901EBAEC25004A339B /* Screen Shot 2017-03-09 at 08.42.25.png in Resources */,
+				EAD349121EB20CD600CC2725 /* Assets.xcassets in Resources */,
+				EAD349101EB20CD600CC2725 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD349191EB20CD600CC2725 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAD349031EB20CD600CC2725 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD3490D1EB20CD600CC2725 /* ViewController.swift in Sources */,
+				EAB686851EB992CF004A339B /* TGUser.swift in Sources */,
+				EA3D2C7F1EBFFFF200367F70 /* TGProject.swift in Sources */,
+				EAD3490B1EB20CD600CC2725 /* AppDelegate.swift in Sources */,
+				EAD3492B1EB2F7ED00CC2725 /* ParseJson.swift in Sources */,
+				EAB686921EBAECD7004A339B /* ListProjectCell.swift in Sources */,
+				EAB6868E1EBAEA66004A339B /* ListProjectViewController.swift in Sources */,
+				EAB6868C1EB9CB82004A339B /* StaticClass.swift in Sources */,
+				EAD3492D1EB303A200CC2725 /* Constant.swift in Sources */,
+				EAD3492F1EB35A4600CC2725 /* RegisterViewViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAD349171EB20CD600CC2725 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD349201EB20CD600CC2725 /* TaigaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EAD3491D1EB20CD600CC2725 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EAD349061EB20CD600CC2725 /* Taiga */;
+			targetProxy = EAD3491C1EB20CD600CC2725 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EAD3490E1EB20CD600CC2725 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAD3490F1EB20CD600CC2725 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAD349131EB20CD600CC2725 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAD349141EB20CD600CC2725 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAD349221EB20CD700CC2725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAD349231EB20CD700CC2725 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAD349251EB20CD700CC2725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Taiga/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = QTD.Taiga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		EAD349261EB20CD700CC2725 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Taiga/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = QTD.Taiga;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		EAD349281EB20CD700CC2725 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TaigaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = QTD.TaigaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taiga.app/Taiga";
+			};
+			name = Debug;
+		};
+		EAD349291EB20CD700CC2725 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = TaigaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = QTD.TaigaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Taiga.app/Taiga";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAD349021EB20CD600CC2725 /* Build configuration list for PBXProject "Taiga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD349221EB20CD700CC2725 /* Debug */,
+				EAD349231EB20CD700CC2725 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAD349241EB20CD700CC2725 /* Build configuration list for PBXNativeTarget "Taiga" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD349251EB20CD700CC2725 /* Debug */,
+				EAD349261EB20CD700CC2725 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAD349271EB20CD700CC2725 /* Build configuration list for PBXNativeTarget "TaigaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAD349281EB20CD700CC2725 /* Debug */,
+				EAD349291EB20CD700CC2725 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAD348FF1EB20CD600CC2725 /* Project object */;
+}
