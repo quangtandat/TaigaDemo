@@ -68,7 +68,6 @@ extension ListProjectViewController:UITableViewDataSource,UITableViewDelegate
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! ListProjectCell
-       // cell.lblName.numberOfLines = 0
         cell.lblName.text = "Project name:" + " ".appending((arrayOfName[indexPath.row].name))
         cell.lblAuthor.text = "User:" + " ".appending((arrayOfName[indexPath.row].username))
         

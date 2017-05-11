@@ -55,7 +55,7 @@ var jsonManager = ParseJson()
     }
     func keyboardWillShow(notification: NSNotification){
         var height = CGFloat()
-       // print(UIScreen.main.bounds.height)
+      
         let screenSize = UIScreen.main.bounds.height
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             height = keyboardSize.height
