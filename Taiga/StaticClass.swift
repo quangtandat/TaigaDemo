@@ -24,6 +24,7 @@ class StaticClass: NSObject {
         }
         DispatchQueue.main.async {
             UIApplication.shared.keyWindow?.rootViewController!.present(alert, animated: true, completion: nil)
+            
         }
         
     }

@@ -10,22 +10,26 @@ import UIKit
 
 class ListProjectViewController: UIViewController {
 var jsonManager = ParseJson()
-    //var projectDetail = TGProject()
+      var idUser = Int()
+     var leftBarButton:UIBarButtonItem = UIBarButtonItem()
      var staticComponent = StaticClass()
     var arrayOfContent = [[String:Any]]()
     var arrayOfName = [TGProject]()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        leftBarButton = UIBarButtonItem.init(title: "Log out", style: .plain, target: self, action: #selector(self.logout))
+        self.navigationItem.leftBarButtonItem = leftBarButton
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 103
-        jsonManager.getApi(link: linkGetList,
+        
+        jsonManager.getApi(link: linkGetList.appending(String(idUser)),
         success: {(statusCode,dict) in
             if statusCode != 200{
                 
             }
             else if statusCode == 200{
-         
+      
                 for pointer in dict{
                    
                 let name = pointer["name"]
@@ -46,10 +50,15 @@ var jsonManager = ParseJson()
             self.staticComponent.showAlert("Alert", message:"No Internet", actions:[actionOK])
             
         })
+         print(idUser)
 }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func logout(){
+
+        self.navigationController?.popViewController(animated: true)
     }
 }
 extension ListProjectViewController:UITableViewDataSource,UITableViewDelegate

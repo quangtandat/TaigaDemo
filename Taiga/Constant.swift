@@ -16,7 +16,7 @@ let postRequest = "POST"
 let authorizationKey = "Authorization"
 let linkSignIn = "https://api.taiga.io/api/v1/auth"
 let linkSignUp = "https://api.taiga.io/api/v1/auth/register"
-let linkGetList = "https://api.taiga.io/api/v1/projects"
+let linkGetList = "https://api.taiga.io/api/v1/projects?member="
 
 
 class Constant: NSObject {

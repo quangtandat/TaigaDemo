@@ -24,7 +24,15 @@ var jsonManager = ParseJson()
         self.view.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(self.isLanscape), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardIsHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
+      
+
 }
+    override func viewWillAppear(_ animated: Bool) {
+        userInfo.removeAll()
+    }
+        
+    
+    
     func keyboardIsHide(){
         contraintScrollView.constant = 50
     }
@@ -69,15 +77,9 @@ var jsonManager = ParseJson()
     self.view.endEditing(true)
     }
     
-    @IBAction func btnRegister(_ sender: AnyObject) {
-        //var parseFinish = [String:Any]()
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterView") as! RegisterViewViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-       
-    }
     
-    @IBAction func btnLogin(_ sender: AnyObject) {
-        
+    
+    func login(){
         let username = txtUsername.text
         let password = txtPassword.text
         jsonManager.signIn(parameter: ["password":password!,"type":"normal","username":username!],link: linkSignIn,success: {(statusCode,dict) in
@@ -91,17 +93,36 @@ var jsonManager = ParseJson()
                 print(self.userInfo)
                 DispatchQueue.main.async {
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListProjectViewController") as! ListProjectViewController
+                       vc.idUser = self.userInfo[0].id
+                  
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
             }
-        }
+            }
             ,failure: {(Bool) in
                 let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
                 })
                 self.staticComponent.showAlert("Alert", message:"No Internet", actions:[actionOK])
-
+                
         })
     }
+    
+    
+    
+    
+    @IBAction func btnRegister(_ sender: AnyObject) {
+       
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "RegisterView") as! RegisterViewViewController
+        vc.delegate = self
+     
+        self.navigationController?.present(vc, animated: true, completion: nil)
+       
+    }
+    
+    @IBAction func btnLogin(_ sender: AnyObject) {
+        self.login()
+        
+           }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -128,6 +149,7 @@ extension ViewController:UITextFieldDelegate{
                     print(self.userInfo)
                     DispatchQueue.main.async {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListProjectViewController") as! ListProjectViewController
+                          vc.idUser = self.userInfo[0].id
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
@@ -142,10 +164,17 @@ extension ViewController:UITextFieldDelegate{
         }
         return true
     }
-
+   
 
 }
-
+// Delegate
+extension ViewController:didGetData{
+    func getData(username: String, password: String) {
+        self.txtUsername.text = username
+        self.txtPassword.text = password
+         self.login()
+    }
+}
 
 
 

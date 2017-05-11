@@ -7,9 +7,14 @@
 //
 
 import UIKit
-
+protocol didGetData {
+    func getData(username:String, password: String)
+}
 class RegisterViewViewController: UIViewController {
+    var delegate: didGetData?
 var jsonManager = ParseJson()
+    var userInfo = [TGUser]()
+  
     var staticComponent = StaticClass()
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtFullname: UITextField!
@@ -19,16 +24,30 @@ var jsonManager = ParseJson()
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var constraintBottomScroolView: NSLayoutConstraint!
     
+    @IBOutlet weak var topConstraintNavigationBar: NSLayoutConstraint!
+    @IBOutlet weak var navigationBar: UINavigationItem!
     override func viewDidLoad() {
         super.viewDidLoad()
          NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.isTap))
         self.view.addGestureRecognizer(tapGesture)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.isLanscape), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+       
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func isLanscape(){
+        if(UIDevice.current.orientation.isLandscape){
+          topConstraintNavigationBar.constant = 0
+        }
+        else{
+            topConstraintNavigationBar.constant = 20
+        }
+
+    
     }
     func isTap(){
         constraintBottomScroolView.constant = 50
@@ -73,41 +92,66 @@ var jsonManager = ParseJson()
     }
     
         @IBAction func btnRegister(_ sender: AnyObject) {
-        let username = txtUsername.text
-        let password = txtPassword.text
-        let email    = txtEmail.text
-        let fullName = txtFullname.text
+        var username = txtUsername.text
+            username = username?.trimmingCharacters(in: .whitespaces)
+        var password = txtPassword.text
+           password = password?.trimmingCharacters(in: .whitespaces)
+        var email    = txtEmail.text
+             email = email?.trimmingCharacters(in: .whitespaces)
+        var fullName = txtFullname.text
+             fullName = fullName?.trimmingCharacters(in: .whitespaces)
         jsonManager.signIn(parameter: ["email":email!, "full_name":fullName! , "password":password!,"type":"public","username":username!],link: linkSignUp,success: {(statusCode,dict)-> Void in
             if statusCode != 201{
                 let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
                 })
                 if let sessions = dict["email"] as? [String] {
                     let sessionInfo = sessions[0]
-                self.staticComponent.showAlert("Alert", message:sessionInfo , actions:[actionOK])
+                self.showAlert("Alert", message:sessionInfo , actions:[actionOK])
                 }
                 if let sessions = dict["password"] as? [String] {
                     let sessionInfo = sessions[0]
-                    self.staticComponent.showAlert("Alert", message:sessionInfo  , actions:[actionOK])
+                    self.showAlert("Alert", message:sessionInfo  , actions:[actionOK])
                 }
                 if let sessions = dict["full_name"] as? [String] {
                     let sessionInfo = sessions[0]
-                    self.staticComponent.showAlert("Alert", message:sessionInfo  , actions:[actionOK])
+                    self.showAlert("Alert", message:sessionInfo  , actions:[actionOK])
                 }
                 if let sessions = dict["username"] as? [String] {
                     let sessionInfo = sessions[0]
-                    self.staticComponent.showAlert("Alert", message:sessionInfo , actions:[actionOK])
+                    self.showAlert("Alert", message:sessionInfo , actions:[actionOK])
                 }
-                if let sessions = dict["_error_message"] as? String{
-                    self.staticComponent.showAlert("Alert", message:sessions , actions:[actionOK])
+                if let sessions =  dict["_error_message"] as? String{
+                    self.showAlert("Alert", message:sessions , actions:[actionOK])
                 }
             }
+            else{
+                let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
+                  self.delegate?.getData(username: username!, password: password!)
+                    self.dismiss(animated: true, completion: nil)
+                    
+                  
+                })
+                self.showAlert("Alert", message:"Success", actions:[actionOK])
+            }
             },failure: {(Bool) in
+                
                 let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
                 })
-                self.staticComponent.showAlert("Alert", message:"No Internet", actions:[actionOK])
+                self.showAlert("Alert", message:"No Internet", actions:[actionOK])
 
         })
     }
+    func showAlert(_ title: String?, message: String?,actions:[UIAlertAction]) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        for action in actions {
+            alert.addAction(action)
+        }
+        DispatchQueue.main.async {
+           self.present(alert, animated: true, completion: nil)
+            
+        }
+    }
+    
 }
 extension RegisterViewViewController:UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -144,6 +188,7 @@ extension RegisterViewViewController:UITextFieldDelegate{
                     }
                 }
                 },failure: {(Bool) in
+                   
                     let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
                     })
                     self.staticComponent.showAlert("Alert", message:"No Internet", actions:[actionOK])
