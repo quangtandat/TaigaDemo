@@ -13,6 +13,10 @@ var jsonManager = ParseJson()
    var staticComponent = StaticClass()
     var userInfo = [TGUser]()
     
+    
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contraintScrollView: NSLayoutConstraint!
     @IBOutlet weak var txtUsername: UITextField!
@@ -24,11 +28,13 @@ var jsonManager = ParseJson()
         self.view.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(self.isLanscape), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardIsHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-      
+loadingIndicator.hidesWhenStopped = true
 
 }
     override func viewWillAppear(_ animated: Bool) {
         userInfo.removeAll()
+     //    loadingIndicator.isHidden = true
+        self.loadingIndicator.stopAnimating()
     }
         
     
@@ -80,6 +86,7 @@ var jsonManager = ParseJson()
     
     
     func login(){
+         self.loadingIndicator.startAnimating()
         let username = txtUsername.text
         let password = txtPassword.text
         jsonManager.signIn(parameter: ["password":password!,"type":"normal","username":username!],link: linkSignIn,success: {(statusCode,dict) in
@@ -92,10 +99,14 @@ var jsonManager = ParseJson()
                 self.userInfo.append(TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int))
                 print(self.userInfo)
                 DispatchQueue.main.async {
+                   
+                 //   self.loadingIndicator.isHidden = false
+                  
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListProjectViewController") as! ListProjectViewController
                        vc.idUser = self.userInfo[0].id
                   
                     self.navigationController?.pushViewController(vc, animated: true)
+                      //
                 }
             }
             }
@@ -136,6 +147,7 @@ extension ViewController:UITextFieldDelegate{
             nextField.becomeFirstResponder()
         }
         else{
+            self.loadingIndicator.startAnimating()
             let username = txtUsername.text
             let password = txtPassword.text
             jsonManager.signIn(parameter: ["password":password!,"type":"normal","username":username!],link: linkSignIn,success: {(statusCode,dict) in

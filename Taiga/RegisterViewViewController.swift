@@ -14,13 +14,14 @@ class RegisterViewViewController: UIViewController {
     var delegate: didGetData?
 var jsonManager = ParseJson()
     var userInfo = [TGUser]()
-  
+    var leftBarButton:UIBarButtonItem = UIBarButtonItem()
     var staticComponent = StaticClass()
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtFullname: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtUsername: UITextField!
     
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var constraintBottomScroolView: NSLayoutConstraint!
     
@@ -32,9 +33,14 @@ var jsonManager = ParseJson()
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.isTap))
         self.view.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(self.isLanscape), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
-       
+        leftBarButton = UIBarButtonItem.init(title: "Back", style: .plain, target: self, action: #selector(self.backBtn))
+        self.navigationBar.leftBarButtonItem = leftBarButton
+       self.loadingIndicator.hidesWhenStopped = true
     }
-
+    func backBtn(){
+        self.dismiss(animated: true, completion: nil)
+    
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -126,6 +132,7 @@ var jsonManager = ParseJson()
             }
             else{
                 let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
+                    self.loadingIndicator.startAnimating()
                   self.delegate?.getData(username: username!, password: password!)
                     self.dismiss(animated: true, completion: nil)
                     

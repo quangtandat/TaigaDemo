@@ -61,6 +61,7 @@
                                                     <action selector="btnRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="j3x-83-Zx3"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="2sO-b0-4Vc"/>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -71,12 +72,14 @@
                                             <constraint firstItem="YQY-VB-p05" firstAttribute="centerX" secondItem="EVT-V5-8aa" secondAttribute="centerX" constant="7.5" id="M27-db-e2v"/>
                                             <constraint firstItem="YQY-VB-p05" firstAttribute="top" secondItem="EVT-V5-8aa" secondAttribute="top" constant="179" id="Nga-RB-hx3"/>
                                             <constraint firstItem="YQY-VB-p05" firstAttribute="width" secondItem="EVT-V5-8aa" secondAttribute="width" multiplier="0.8" id="SHp-aw-fRM"/>
+                                            <constraint firstItem="2sO-b0-4Vc" firstAttribute="centerX" secondItem="EVT-V5-8aa" secondAttribute="centerX" id="c53-ah-XZS"/>
                                             <constraint firstItem="UYj-5R-ul6" firstAttribute="top" secondItem="YQY-VB-p05" secondAttribute="bottom" constant="19" id="dZF-wv-4B0"/>
                                             <constraint firstItem="UYj-5R-ul6" firstAttribute="height" secondItem="YQY-VB-p05" secondAttribute="height" id="eae-6H-N5e"/>
                                             <constraint firstItem="N7L-jy-P6a" firstAttribute="height" secondItem="YQY-VB-p05" secondAttribute="height" id="ftI-Eh-Jbw"/>
                                             <constraint firstItem="UYj-5R-ul6" firstAttribute="width" secondItem="YQY-VB-p05" secondAttribute="width" id="jz2-eG-82f"/>
                                             <constraint firstItem="N7L-jy-P6a" firstAttribute="centerX" secondItem="EVT-V5-8aa" secondAttribute="centerX" constant="7.5" id="mFB-zO-vdj"/>
                                             <constraint firstAttribute="bottom" secondItem="pxL-8g-jbn" secondAttribute="bottom" constant="132" id="nn6-Di-WvH"/>
+                                            <constraint firstItem="2sO-b0-4Vc" firstAttribute="top" secondItem="EVT-V5-8aa" secondAttribute="top" constant="227" id="pAn-eA-w83"/>
                                             <constraint firstItem="UYj-5R-ul6" firstAttribute="centerX" secondItem="EVT-V5-8aa" secondAttribute="centerX" constant="7.5" id="scB-gD-lfV"/>
                                             <constraint firstItem="pxL-8g-jbn" firstAttribute="width" secondItem="N7L-jy-P6a" secondAttribute="width" id="vZG-z7-eg2"/>
                                             <constraint firstItem="pxL-8g-jbn" firstAttribute="top" secondItem="N7L-jy-P6a" secondAttribute="bottom" constant="14" id="z6A-dA-RPW"/>
@@ -108,6 +111,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="contraintScrollView" destination="nn6-Di-WvH" id="JT3-Lb-88b"/>
+                        <outlet property="loadingIndicator" destination="2sO-b0-4Vc" id="puV-qA-YLE"/>
                         <outlet property="scrollView" destination="sg8-qi-jlw" id="1zA-8t-nVq"/>
                         <outlet property="txtPassword" destination="UYj-5R-ul6" id="dIR-Pf-JV9"/>
                         <outlet property="txtUsername" destination="YQY-VB-p05" id="AUw-Nu-yQ9"/>
@@ -133,10 +137,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="103" id="VEX-AJ-m3F" customClass="ListProjectCell" customModule="Taiga" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="103"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VEX-AJ-m3F" id="JbM-G0-Qfd">
-                                            <frame key="frameInset" width="1000" height="103"/>
+                                            <frame key="frameInset" width="375" height="102"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4w-Va-04t">
@@ -191,7 +195,6 @@
         <!--Navigation Controller-->
         <scene sceneID="nXq-Nb-MqN">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vMU-Mi-2E6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4fy-Ep-SNe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="udr-uc-0Mp">
@@ -203,6 +206,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="L1R-fe-Xf5"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vMU-Mi-2E6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="116" y="119.1904047976012"/>
         </scene>
@@ -271,6 +275,7 @@
                                                     <navigationItem title="Register" id="wD7-Qa-dl0"/>
                                                 </items>
                                             </navigationBar>
+                                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fFf-5u-SeD"/>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -278,6 +283,7 @@
                                             <constraint firstItem="xBj-Rs-DJ9" firstAttribute="width" secondItem="aLS-xF-SQg" secondAttribute="width" id="7Q1-UN-t9G"/>
                                             <constraint firstItem="xBj-Rs-DJ9" firstAttribute="centerX" secondItem="bct-MH-rEy" secondAttribute="centerX" id="A7z-Gf-ZX5"/>
                                             <constraint firstItem="4cJ-JQ-Ryu" firstAttribute="height" secondItem="GrK-Nb-KKw" secondAttribute="height" id="FuU-ph-otZ"/>
+                                            <constraint firstItem="fFf-5u-SeD" firstAttribute="centerX" secondItem="bct-MH-rEy" secondAttribute="centerX" id="Gml-iO-dlh"/>
                                             <constraint firstItem="4cJ-JQ-Ryu" firstAttribute="centerX" secondItem="GrK-Nb-KKw" secondAttribute="centerX" id="KMZ-Wc-ABb"/>
                                             <constraint firstItem="GrK-Nb-KKw" firstAttribute="width" secondItem="xBj-Rs-DJ9" secondAttribute="width" id="LY5-d8-xc6"/>
                                             <constraint firstItem="GrK-Nb-KKw" firstAttribute="centerX" secondItem="xBj-Rs-DJ9" secondAttribute="centerX" id="O9b-XZ-g7M"/>
@@ -289,6 +295,7 @@
                                             <constraint firstItem="GrK-Nb-KKw" firstAttribute="height" secondItem="xBj-Rs-DJ9" secondAttribute="height" id="WtB-Ho-sXT"/>
                                             <constraint firstItem="mWQ-uz-zrU" firstAttribute="height" secondItem="aLS-xF-SQg" secondAttribute="height" id="X7O-o6-tI3"/>
                                             <constraint firstItem="aLS-xF-SQg" firstAttribute="width" secondItem="bct-MH-rEy" secondAttribute="width" multiplier="0.8" id="aL8-Sc-I23"/>
+                                            <constraint firstItem="fFf-5u-SeD" firstAttribute="centerY" secondItem="bct-MH-rEy" secondAttribute="centerY" id="anN-of-mIK"/>
                                             <constraint firstItem="fzZ-ha-d0l" firstAttribute="leading" secondItem="bct-MH-rEy" secondAttribute="leading" id="bBX-vd-u8y"/>
                                             <constraint firstItem="xBj-Rs-DJ9" firstAttribute="height" secondItem="aLS-xF-SQg" secondAttribute="height" id="cA9-Ld-3AE"/>
                                             <constraint firstItem="mWQ-uz-zrU" firstAttribute="width" secondItem="aLS-xF-SQg" secondAttribute="width" id="cRE-J1-dam"/>
@@ -322,6 +329,7 @@
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="constraintBottomScroolView" destination="OUM-aG-iIh" id="gw6-SE-L8b"/>
+                        <outlet property="loadingIndicator" destination="fFf-5u-SeD" id="kyV-6c-Ufj"/>
                         <outlet property="navigationBar" destination="wD7-Qa-dl0" id="IKg-7y-USa"/>
                         <outlet property="scrollView" destination="axj-Iv-mVc" id="O7F-hj-gLj"/>
                         <outlet property="topConstraintNavigationBar" destination="PjR-Rw-RHo" id="CDl-IZ-vqv"/>
