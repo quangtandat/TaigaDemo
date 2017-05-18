@@ -13,9 +13,9 @@ var jsonManager = ParseJson()
    var staticComponent = StaticClass()
     var userInfo = [TGUser]()
     
-    
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
+    var tapGesture: UITapGestureRecognizer!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView?
+    var currentUser:TGUser? = nil
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contraintScrollView: NSLayoutConstraint!
@@ -23,21 +23,23 @@ var jsonManager = ParseJson()
     @IBOutlet weak var txtPassword: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.isTap))
+       tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(self.isTap))
         self.view.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(self.isLanscape), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardIsHide), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
-loadingIndicator.hidesWhenStopped = true
+         loadingIndicator?.hidesWhenStopped = true
 
 }
-    override func viewWillAppear(_ animated: Bool) {
-        userInfo.removeAll()
-     //    loadingIndicator.isHidden = true
-        self.loadingIndicator.stopAnimating()
-    }
+    override func viewDidAppear(_ animated: Bool) {
         
+       
+    }
     
+    override func viewWillDisappear(_ animated: Bool) {
+       NotificationCenter.default.removeObserver(self)
+    }
     
     func keyboardIsHide(){
         contraintScrollView.constant = 50
@@ -86,25 +88,33 @@ loadingIndicator.hidesWhenStopped = true
     
     
     func login(){
-         self.loadingIndicator.startAnimating()
+       
+         self.loadingIndicator?.startAnimating()
         let username = txtUsername.text
         let password = txtPassword.text
         jsonManager.signIn(parameter: ["password":password!,"type":"normal","username":username!],link: linkSignIn,success: {(statusCode,dict) in
             if statusCode != 200{
                 let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
+                     self.loadingIndicator?.stopAnimating()
                 })
                 self.staticComponent.showAlert("Alert", message:dict["_error_message"] as! String?, actions:[actionOK])
             }
             else if statusCode == 200{
-                self.userInfo.append(TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int))
-                print(self.userInfo)
+               // self.userInfo.append(TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int))
+                
+               self.currentUser  = TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int)
+                self.currentUser?.save()
+                
+               
                 DispatchQueue.main.async {
                    
                  //   self.loadingIndicator.isHidden = false
                   
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListProjectViewController") as! ListProjectViewController
-                       vc.idUser = self.userInfo[0].id
-                  
+                      // vc.idUser =  (self.currentUser?.id)!
+                        vc.currentUser =  self.currentUser
+                    print(vc.currentUser)
+                  vc.delegateLogout = self
                     self.navigationController?.pushViewController(vc, animated: true)
                       //
                 }
@@ -147,21 +157,26 @@ extension ViewController:UITextFieldDelegate{
             nextField.becomeFirstResponder()
         }
         else{
-            self.loadingIndicator.startAnimating()
+            self.loadingIndicator?.startAnimating()
             let username = txtUsername.text
             let password = txtPassword.text
             jsonManager.signIn(parameter: ["password":password!,"type":"normal","username":username!],link: linkSignIn,success: {(statusCode,dict) in
                 if statusCode != 200{
                     let actionOK = UIAlertAction(title: "Ok", style: .default, handler: { (action:UIAlertAction) in
+                         self.loadingIndicator?.stopAnimating()
                     })
                     self.staticComponent.showAlert("Alert", message:dict["_error_message"] as! String?, actions:[actionOK])
                 }
                 else if statusCode == 200{
-                    self.userInfo.append(TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int))
-                    print(self.userInfo)
+                  //  self.userInfo.append(TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int))
+                    self.currentUser  = TGUser.init(fullname: dict["full_name"] as! String, username: dict["username"] as! String, email:dict["email"] as! String,id:dict["id"] as! Int)
+                     self.currentUser?.save()
+                   
                     DispatchQueue.main.async {
                         let vc = self.storyboard?.instantiateViewController(withIdentifier: "ListProjectViewController") as! ListProjectViewController
-                          vc.idUser = self.userInfo[0].id
+                       //   vc.idUser = self.userInfo[0].id
+                        vc.currentUser =  self.currentUser
+                        vc.delegateLogout = self
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 }
@@ -185,6 +200,14 @@ extension ViewController:didGetData{
         self.txtUsername.text = username
         self.txtPassword.text = password
          self.login()
+    }
+}
+extension ViewController:isLogout{
+    func logOutSuccess() {
+            self.txtUsername.text = nil
+            self.txtPassword.text = nil
+            userInfo.removeAll()
+            self.loadingIndicator?.stopAnimating()
     }
 }
 

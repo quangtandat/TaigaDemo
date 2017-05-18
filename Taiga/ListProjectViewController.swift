@@ -7,10 +7,15 @@
 //
 
 import UIKit
-
+protocol isLogout{
+    func logOutSuccess()
+}
 class ListProjectViewController: UIViewController {
 var jsonManager = ParseJson()
+    var delegateLogout: isLogout?
       var idUser = Int()
+    var currentUser:TGUser!
+    var isLogout:isLogout?
      var leftBarButton:UIBarButtonItem = UIBarButtonItem()
      var staticComponent = StaticClass()
     var arrayOfContent = [[String:Any]]()
@@ -22,8 +27,8 @@ var jsonManager = ParseJson()
         self.navigationItem.leftBarButtonItem = leftBarButton
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 103
-        
-        jsonManager.getApi(link: linkGetList.appending(String(idUser)),
+      //  print(currentUser.id)
+        jsonManager.getApi(link: linkGetList.appending(String(describing: currentUser.id)),
         success: {(statusCode,dict) in
             if statusCode != 200{
                 
@@ -33,12 +38,16 @@ var jsonManager = ParseJson()
                 for pointer in dict{
                    
                 let name = pointer["name"]
-                   var userInfo = pointer["owner"] as! [String:Any]
-                  let username = userInfo["username"]
-                let projecInfo = TGProject.init(name: name as! String, username: username as! String)
+                var userInfo = pointer["owner"] as! [String:Any]
+                let username = userInfo["username"]
+                let description = pointer["description"]
+                let members = pointer["members"] as! [Int]
+                let date = pointer["created_date"]
+                    let projecInfo = TGProject.init(name: name as! String, username: username as! String,description: description as! String,members:members, date:date as! String)
                    self.arrayOfName.append(projecInfo)
+                     //print(projecInfo)
                 }
-              
+             
                   DispatchQueue.main.async {
                 self.tableView.reloadData()
                 }
@@ -50,15 +59,17 @@ var jsonManager = ParseJson()
             self.staticComponent.showAlert("Alert", message:"No Internet", actions:[actionOK])
             
         })
-         print(idUser)
+       //  print(idUser)
 }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     func logout(){
-
+        delegateLogout?.logOutSuccess()
+        currentUser?.clear()
         self.navigationController?.popViewController(animated: true)
+      
     }
 }
 extension ListProjectViewController:UITableViewDataSource,UITableViewDelegate
@@ -82,5 +93,10 @@ extension ListProjectViewController:UITableViewDataSource,UITableViewDelegate
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 103
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProjectDetailViewController") as! ProjectDetailViewController
+        vc.arrayProjectDetail = [arrayOfName[indexPath.row]]
+      self.navigationController?.pushViewController(vc, animated: true)
     }
 }

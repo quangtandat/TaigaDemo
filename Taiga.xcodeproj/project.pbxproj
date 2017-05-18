@@ -21,6 +21,7 @@
 		EAD3492B1EB2F7ED00CC2725 /* ParseJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3492A1EB2F7ED00CC2725 /* ParseJson.swift */; };
 		EAD3492D1EB303A200CC2725 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3492C1EB303A100CC2725 /* Constant.swift */; };
 		EAD3492F1EB35A4600CC2725 /* RegisterViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD3492E1EB35A4500CC2725 /* RegisterViewViewController.swift */; };
+		EAE92BF01ECC052D00D7F454 /* ProjectDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE92BEF1ECC052C00D7F454 /* ProjectDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		EAD3492A1EB2F7ED00CC2725 /* ParseJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseJson.swift; sourceTree = "<group>"; };
 		EAD3492C1EB303A100CC2725 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		EAD3492E1EB35A4500CC2725 /* RegisterViewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewViewController.swift; sourceTree = "<group>"; };
+		EAE92BEF1ECC052C00D7F454 /* ProjectDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				EAD3492E1EB35A4500CC2725 /* RegisterViewViewController.swift */,
 				EAB6868D1EBAEA66004A339B /* ListProjectViewController.swift */,
 				EAB686911EBAECD7004A339B /* ListProjectCell.swift */,
+				EAE92BEF1ECC052C00D7F454 /* ProjectDetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				EAD3490B1EB20CD600CC2725 /* AppDelegate.swift in Sources */,
 				EAD3492B1EB2F7ED00CC2725 /* ParseJson.swift in Sources */,
 				EAB686921EBAECD7004A339B /* ListProjectCell.swift in Sources */,
+				EAE92BF01ECC052D00D7F454 /* ProjectDetailViewController.swift in Sources */,
 				EAB6868E1EBAEA66004A339B /* ListProjectViewController.swift in Sources */,
 				EAB6868C1EB9CB82004A339B /* StaticClass.swift in Sources */,
 				EAD3492D1EB303A200CC2725 /* Constant.swift in Sources */,

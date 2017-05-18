@@ -45,6 +45,11 @@ var jsonManager = ParseJson()
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewWillDisappear(_ animated: Bool) {
+        constraintBottomScroolView.constant = 50
+    }
+    
+    
     func isLanscape(){
         if(UIDevice.current.orientation.isLandscape){
           topConstraintNavigationBar.constant = 0

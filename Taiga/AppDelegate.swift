@@ -15,8 +15,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        print(TGUser.currentUser()?.id)
         // Override point for customization after application launch.
+        if TGUser.currentUser() != nil{
+           
+            let rootViewController = self.window!.rootViewController as! UINavigationController
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let profileViewController = mainStoryboard.instantiateViewController(withIdentifier: "ListProjectViewController") as! ListProjectViewController
+             profileViewController.currentUser =  TGUser.currentUser()
+            rootViewController.pushViewController(profileViewController, animated: false)
+            
+        
+        }
         return true
+    
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
